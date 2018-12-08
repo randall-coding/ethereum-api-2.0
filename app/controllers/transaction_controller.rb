@@ -39,8 +39,21 @@ require 'httparty'
         else
           puts "transaction not saved"
         end
-      end
+      end #end if
     end #end if
+
+    #big decimal math
+    if (@transaction_response['result'])
+      @divisor = BigDecimal.new(10**18)
+      @value = BigDecimal.new(@transaction_response['result']['value'].to_i(16))
+      @value /= @divisor
+
+      @gas_price = BigDecimal.new(@transaction_response['result']['gasPrice'].to_i(16))
+      @gas_price /= @divisor
+      puts "****Did math****"
+    end
+
+
 
     ###alternative API calls
     #Search by address, not by transaction hash @transaction_response = JSON.parse HTTParty.get('http://api.etherscan.io/api?module=account&action=txlist&address=0xbeef281b81d383336aca8b2b067a526227638087&sort=asc').response.body

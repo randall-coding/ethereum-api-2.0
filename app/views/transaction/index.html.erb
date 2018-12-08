@@ -47,7 +47,7 @@
               <div class="col-sm-3 hidden2-su-xs">To:</div>
               <div class="col-sm-9 cbs"><a href="/address/<%= @transaction_response['result']['to'] %> " class="wordwrap"><%= @transaction_response['result']['to'] %> </a> <!-- (HitBTC_3) --></div>
               <div class="col-sm-3 hidden2-su-xs">Value:</div>
-              <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanValue" title="The amount of ETH to be transferred to the recipient with the transaction"> <%= @transaction_response['result']['value'].to_i(16).to_s %> E-18  Ether </span>
+              <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanValue" title="The amount of ETH to be transferred to the recipient with the transaction"> <%= @value.to_s %> Ether </span>
               </div>
               <div class="col-sm-3 hidden2-su-xs">Gas:</div>
               <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanGasLimit" title="The amount of GAS supplied for this transaction to happen">
@@ -60,7 +60,7 @@
               <div class="col-sm-9 cbs"> <span id="ContentPlaceHolder1_spanGasUsedByTxn" title="The amount of GAS used by this specific transaction alone"> </span>
               </div> -->
               <div class="col-sm-3 hidden2-su-xs">Gas Price:</div>
-              <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanGasPrice" title="The price offered to the miner to purchase this amount of GAS （per GAS）"> <%= @transaction_response['result']['gasPrice'].to_i(16).to_s %> E-18  Ether </span>
+              <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanGasPrice" title="The price offered to the miner to purchase this amount of GAS （per GAS）"> <%= @gas_price.to_s %> Ether </span>
               </div>
 
 
