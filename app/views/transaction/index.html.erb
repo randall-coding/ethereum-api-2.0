@@ -4,14 +4,14 @@
   <h1> Randall Babaoye's submission </h1>
   <h2> Ethereum transaction information.</h2>
   <form action="">
-  <div class="searchbar">
-    Enter transaction # <input id="search-transaction" name="hash" type="text" placeholder="transaction number"
+    <div class="searchbar">
+      Enter transaction # <input id="search-transaction" name="hash" type="text" placeholder="transaction number"
       value="<% if @transaction_hash != 0 %> <%= @transaction_hash %> <%end%>" >  </input>
       <input type="hidden" value="mainet" name="mode" class="mode">
-    <button id="btn-search1" class="search"> Search Mainet </button>
-    <button id="btn-search2"  class="search" > Search Ropsten </button>
-  </div>
-</form>
+      <button id="btn-search1" class="search"> Search Mainet </button>
+      <button id="btn-search2"  class="search" > Search Ropsten </button>
+    </div>
+  </form>
   <div class="tab-content" style="padding: 1px 0;">
     <div class="tab-pane fade in active" id="overview">
       <div class="panel panel-info">
@@ -23,147 +23,28 @@
               </h3>
             </span></h3></div>
 
-        <%if @transaction_hash != 0  && (@transaction_response['result']) %>
-            <div id="ContentPlaceHolder1_maintable" class="container row" style="margin-top:30px">
-              <div class="col-sm-3 hidden2-su-xs">Type:</div>
-              <div id="tx" class="col-sm-9 cbs" style="word-wrap: break-word;"> <%= params[:mode] %> </div>
-              <div class="col-sm-3 hidden2-su-xs">TxHash:</div>
-              <div id="tx" class="col-sm-9 cbs" style="word-wrap: break-word;"> <%= @transaction_hash %> </div>
-              <div class="col-sm-3 hidden2-su-xs">TxReceipt Status:</div><div class="col-sm-9 cbs"><span title="A Status code indicating if the top-level call succeeded or failed (applicable for Post BYZANTIUM blocks only)">
-                <font color="<%if !@transaction_response['error'] %> green <% else %> red <% end %> " >
-                    <%if !@transaction_response['error'] %>
-                    Success
-                    <% else %>
-                    Failure
-                    <% end %> </font></span></div>
-              <div class="col-sm-3 hidden2-su-xs">Block Height:</div>
-              <div class="col-sm-9 cbs"><a href="https://etherscan.io/block/<%= @transaction_response['result']['blockNumber'].to_i(16).to_s%>"> <%= @transaction_response['result']['blockNumber'].to_i(16).to_s %></a> (<span title="Number of Blocks Mined Since"> 1 Block Confirmation</span>)</div>
-              <!--
-              <div class="col-sm-3 hidden2-su-xs">TimeStamp:</div>
-              <div class="col-sm-9 cbs"><span id="clock"></span>   </div>
-              -->
-              <div class="col-sm-3 hidden2-su-xs">From:</div>
-              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><a href="https://etherscan.io/address/<%= @transaction_response['result']['from'] %> "> <%= @transaction_response['result']['from'] %>    </a></div>
-              <div class="col-sm-3 hidden2-su-xs">To:</div>
-              <div class="col-sm-9 cbs"><a href="https://etherscan.io/address/<%= @transaction_response['result']['to'] %> " class="wordwrap"><%= @transaction_response['result']['to'] %> </a> <!-- (HitBTC_3) --></div>
-              <div class="col-sm-3 hidden2-su-xs">Value:</div>
-              <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanValue" title="The amount of ETH to be transferred to the recipient with the transaction"> <%= @value.to_s %> Ether </span>
-              </div>
-              <div class="col-sm-3 hidden2-su-xs">Gas:</div>
-              <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanGasLimit" title="The amount of GAS supplied for this transaction to happen">
-                <%= @transaction_response['result']['gas'].to_i(16).to_s %> </span>
-              </div>
+            <%if @transaction_hash != 0  && (@transaction_response['result']) %>
+            <table class="info">
+              <tr> <td class="type1"> Type: </td> <td class="type2"> <%= params[:mode] %> </td> </tr>
+              <tr> <td class="type1">  TxHash: </td> <td class="type2"> <%= @transaction_hash %> </td> </tr>
+              <tr> <td class="type1"> TxReceipt Status: </td> <td class="type2" style="color:green"> Success </td> </tr>
+              <tr> <td class="type1"> Block Height: </td> <td class="type2"> <a href="https://etherscan.io/block/<%= @transaction_response['result']['blockNumber'].to_i(16).to_s%>"> <%= @transaction_response['result']['blockNumber'].to_i(16).to_s %></a> </td> </tr>
+              <tr> <td class="type1"> From: </td> <td class="type2">  <a href="https://etherscan.io/address/<%= @transaction_response['result']['from'] %> "> <%= @transaction_response['result']['from'] %>    </a> </td>  </tr>
+              <tr> <td class="type1"> To: </td> <td class="type2"> <a href="https://etherscan.io/address/<%= @transaction_response['result']['to'] %> " class="wordwrap"><%= @transaction_response['result']['to'] %> </a>       </td>   </tr>
+              <tr> <td class="type1"> Value: </td> <td class="type2">     <%= @value.to_s %> Ether     </td> </tr>
+              <tr> <td class="type1"> Gas: </td> <td class="type2">   <%= @transaction_response['result']['gas'].to_i(16).to_s %>       </td> </tr>
+              <tr> <td class="type1"> Gas Price: </td> <td class="type2">  <%= @gas_price.to_s %> Ether   </td> </tr>
+            </table>
 
-              <!--
-              <div class="col-sm-3 hidden2-su-xs">Gas Used By Transaction:</div>
-
-              <div class="col-sm-9 cbs"> <span id="ContentPlaceHolder1_spanGasUsedByTxn" title="The amount of GAS used by this specific transaction alone"> </span>
-              </div> -->
-              <div class="col-sm-3 hidden2-su-xs">Gas Price:</div>
-              <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanGasPrice" title="The price offered to the miner to purchase this amount of GAS （per GAS）"> <%= @gas_price.to_s %> Ether </span>
-              </div>
-
-
-              <!-- <div class="col-sm-3 hidden2-su-xs"> Actual Tx Cost/Fee:</div>
-              <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanTxFee" title="Gas Price * Gas Used By Transaction">0<b>.</b>0000672 Ether ($0.006029)</span>
-              </div>
-
-              <div class="col-sm-3 hidden2-su-xs">Nonce &amp; <span id="ContentPlaceHolder1_spanNonce" title="Index position of Transaction in the block">{Position}</span>:</div>
-              <div class="col-sm-9 cbs"><span title="Transaction Nonce"> <%= @transaction_response['result']['nonce'] %> </span> | <span title="Index position of Transaction in the block">{<%= @transaction_response['result']['transactionIndex'] %> }</span>
-              </div>
-              -->
-              <!--
-              <div class="col-sm-3 hidden2-su-xs">Input Data:</div>
-              <div class="col-sm-9 cbs">
-                <div class="tab-content">
-                  <div class="tab-pane fade active in" id="rawtab">
-                    <div>
-                      <span title="The binary data that formed the input to the transaction, either the input data if it was a message call or the contract initialisation if it was a contract creation">
-                        <textarea readonly="" spellcheck="false" style="width: 100%; font-size: small; font-family: Monospace; padding: 8px; background-color: #EEEEEE;" rows="2" id="inputdata"></textarea><br><span id="rawinput" style="display:none"= "" ></span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="decodetab">
-                    <span id="loadingtxframe">
-                      <div id="overlayMain" align="center">
-                        <img src="/images/ajax-loader2.gif" alt="Loading">
-                        <br>
-                      </div>
-                    </span>
-                    <div id="decodebox" style="display:none;">
-                      <div class="scrollbox" style="margin-bottom:2px;">
-                        <div id="inputDecode" class="table-responsive "></div>
-                      </div>
-                      <a href="../#rawtab" data-toggle="tab" class="btn-u btn-u-default btn-u-xs rawtab" style="padding: 0px 4px 0px 4px;" type="button" onclick="javascript:updatehash('');">Switch Back <i class="fa fa-undo txhash-icon"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              -->
-            </div>
             <% else %>
             <div class="failed" style="color:red">
-               Could not obtain data.  Try a different transaction hash
+              Could not obtain data.  Try a different transaction hash
             </div>
             <% end %>
-
-
-            <div>
-            </div>
             <br>
           </div>
         </div>
-        <div class="tab-pane fade in" id="internal">
-          <div class="panel panel-info">
-            <div class="panel-body table-responsive">
-              Invoked Transactions
-              <br>
-              <br>
-              <table class="table table-striped">
-                <tbody><tr style="border-color: #E1E1E1; border-width: 1px; background-color: #F9F9F9; border-top-style: solid;">
-                  <th>Type TraceAddress</th>
-                  <th>From</th>
-                  <th></th>
-                  <th>To</th>
-                  <th>Value</th>
-                  <th>GasLimit</th>
-                </tr>
-
-              </tbody></table>
-            </div>
-          </div>
         </div>
-        <div class="tab-pane fade in" id="eventlog">
-          <div class="panel panel-info">
-            <div class="panel-body table-responsive">
-              <b>
-                Transaction Receipt Event Logs</b>
-                <br>
-                <br>
-                <div>
-                  <table>
-                  </table>
-                </div>
-                <br><br><br><br><br>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade in" id="comments">
-            <div class="panel panel-info">
-              <div class="panel-body">
-                <div>
-                  Make sure to use the "Vote Down" button for any spammy posts, and the "Vote Up" for interesting conversations.<br>
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript">
-                  var disqus_shortname = 'Etherscan'; var disqus_identifier = 'Etherscan_TxHash_0x5b472cb1974be006c2bc27d3d1f703fa10d99d544a47cf8256881b42fe8da150_Comments'; var disqus_title = 'Transaction 0x5b472cb1974be006c2bc27d3d1f703fa10d99d544a47cf8256881b42fe8da150'; var disqus_url = 'https://etherscan.io/tx/0x5b472cb1974be006c2bc27d3d1f703fa10d99d544a47cf8256881b42fe8da150#disqus';
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">Comments Powered by Disqus.</a></noscript>
-                </div>
-              </div>
-            </div>
-            <script id="dsq-count-scr" src="//etherscan.disqus.com/count.js" async=""></script>
-          </div>
-        </div>
-        Powered by Etherscan API and Ruby on Rails
+        &nbsp Powered by Etherscan API and Ruby on Rails
       </body>
       </html>

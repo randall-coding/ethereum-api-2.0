@@ -19,6 +19,19 @@ button.search{
   margin-left: 0px;
 }
 
+table.info{
+  margin-left: 15px;
+
+  & td.type1{
+    width:180px;
+    padding-bottom: 15px;
+  }
+
+  & td.type2{
+    width:360px;
+  }
+}
+
 #search-transaction{
   width:550px;
   margin-left: 5px;
