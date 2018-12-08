@@ -13,8 +13,7 @@ require 'httparty'
     else
       url = "https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=#{@transaction_hash}&apikey=7HH9ACPSQ4K45G31J8C488EUGMTRGYAI4J"
     end
-    puts "**********url is "
-    puts url
+
     @cached = Transaction.find_by(Thash:@transaction_hash)
 
     #make API call, unless cached already
