@@ -3,7 +3,9 @@ require 'awesome_print'
 require 'json'
 require 'httparty'
 
+  #The main page function
   def index
+    #initialize variables
     @transaction_hash = params[:hash]? params[:hash].strip : 0
     @transaction_response = nil
     if( params[:mode] == "ropsten")
@@ -15,6 +17,7 @@ require 'httparty'
     puts url
     @cached = Transaction.find_by(Thash:@transaction_hash)
 
+    #make API call, unless cached already
     if(@cached)
       #use cached
       @transaction_response = JSON.parse @cached.data
@@ -36,8 +39,6 @@ require 'httparty'
         end
       end
     end #end if
-
-
 
     ###alternative API calls
     #Search by address, not by transaction hash @transaction_response = JSON.parse HTTParty.get('http://api.etherscan.io/api?module=account&action=txlist&address=0xbeef281b81d383336aca8b2b067a526227638087&sort=asc').response.body

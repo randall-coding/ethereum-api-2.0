@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
+  #Ropsten search button
   $('#btn-search2').on('click' , (e)->
     $('input.mode').val('ropsten')
   )
