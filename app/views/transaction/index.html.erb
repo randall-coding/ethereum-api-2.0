@@ -43,9 +43,9 @@
               <div class="col-sm-9 cbs"><span id="clock"></span>   </div>
               -->
               <div class="col-sm-3 hidden2-su-xs">From:</div>
-              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><a href="/address/<%= @transaction_response['result']['from'] %> "> <%= @transaction_response['result']['from'] %>    </a></div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><a href="https://etherscan.io/address/<%= @transaction_response['result']['from'] %> "> <%= @transaction_response['result']['from'] %>    </a></div>
               <div class="col-sm-3 hidden2-su-xs">To:</div>
-              <div class="col-sm-9 cbs"><a href="/address/<%= @transaction_response['result']['to'] %> " class="wordwrap"><%= @transaction_response['result']['to'] %> </a> <!-- (HitBTC_3) --></div>
+              <div class="col-sm-9 cbs"><a href="https://etherscan.io/address/<%= @transaction_response['result']['to'] %> " class="wordwrap"><%= @transaction_response['result']['to'] %> </a> <!-- (HitBTC_3) --></div>
               <div class="col-sm-3 hidden2-su-xs">Value:</div>
               <div class="col-sm-9 cbs"><span id="ContentPlaceHolder1_spanValue" title="The amount of ETH to be transferred to the recipient with the transaction"> <%= @value.to_s %> Ether </span>
               </div>
