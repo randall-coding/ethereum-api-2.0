@@ -26,8 +26,10 @@
             <%if @transaction_hash != 0  && (@transaction_response['result']) %>
             <table class="info">
               <tr> <td class="type1"> Type: </td> <td class="type2"> <%= params[:mode] %> </td> </tr>
-              <tr> <td class="type1">  TxHash: </td> <td class="type2"> <%= @transaction_hash %> </td> </tr>
-              <tr> <td class="type1"> TxReceipt Status: </td> <td class="type2" style="color:green"> Success </td> </tr>
+              <tr> <td class="type1"> TxHash: </td> <td class="type2"> <%= @transaction_hash %> </td> </tr>
+              <tr> <td class="type1"> TxReceipt Status: </td> <td class="type2" style="color:green"> <%= @transaction_response['txreceipt_status'] %> </td> </tr>
+              <tr> <td class="type1"> Timestamp </td> <td class="type2" style="color:blue">
+                <%= if @transaction_response['timeStamp'] then Time.at(@transaction_response['timeStamp'].to_i).to_s end%> </td> </tr>
               <tr> <td class="type1"> Block Height: </td> <td class="type2"> <a href="https://etherscan.io/block/<%= @transaction_response['result']['blockNumber'].to_i(16).to_s%>"> <%= @transaction_response['result']['blockNumber'].to_i(16).to_s %></a> </td> </tr>
               <tr> <td class="type1"> From: </td> <td class="type2">  <a href="https://etherscan.io/address/<%= @transaction_response['result']['from'] %> "> <%= @transaction_response['result']['from'] %>    </a> </td>  </tr>
               <tr> <td class="type1"> To: </td> <td class="type2"> <a href="https://etherscan.io/address/<%= @transaction_response['result']['to'] %> " class="wordwrap"><%= @transaction_response['result']['to'] %> </a>       </td>   </tr>

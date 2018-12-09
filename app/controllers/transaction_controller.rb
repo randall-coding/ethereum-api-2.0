@@ -29,11 +29,13 @@ require 'httparty'
       @transaction_response = JSON.parse HTTParty.get("#{url}").response.body
       @transaction_JSON = @transaction_response.to_json
       #save if valid response
-      if (@transaction_hash['result'])
+      if(@transaction_response['result'])
         #Make new transaction
         t = Transaction.new
         t.Thash =@transaction_hash
         t.data=@transaction_JSON
+        t.full_data(params[:mode])
+        @transaction_response = JSON.parse t.data
         if (t.save)
           puts "transaction saved"
         else
@@ -50,8 +52,8 @@ require 'httparty'
 
       @gas_price = BigDecimal.new(@transaction_response['result']['gasPrice'].to_i(16))
       @gas_price /= @divisor
-      puts "****Did math****"
     end
+
 
 
 
