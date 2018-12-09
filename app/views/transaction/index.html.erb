@@ -23,7 +23,7 @@
               </h3>
             </span></h3></div>
 
-            <%if @transaction_hash != 0  && (@transaction_response['result']) %>
+            <%if @transaction_hash != 0  && (@transaction_response['result'] && @transaction_response['result']['type'] == params[:mode]) %>
             <table class="info">
               <tr> <td class="type1"> Type: </td> <td class="type2"> <%= params[:mode] %> </td> </tr>
               <tr> <td class="type1"> TxHash: </td> <td class="type2"> <%= @transaction_hash %> </td> </tr>

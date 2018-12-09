@@ -27,6 +27,7 @@ require 'httparty'
       #New API call
       #this API call works for both internal and external.  More info at https://etherscan.io/apis#proxy  'eth_getTransactionByHash'
       @transaction_response = JSON.parse HTTParty.get("#{url}").response.body
+      @transaction_response['result']['type'] = params[:mode]
       @transaction_JSON = @transaction_response.to_json
       #save if valid response
       if(@transaction_response['result'])
