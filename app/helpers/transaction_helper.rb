@@ -1,7 +1,4 @@
 module TransactionHelper
-#require 'httparty'
-#require 'json'
-
   def api_ethscan
     #API call uses eth_getTransactionByHash to get basic informaiton, then calls tx.full_data() to obtain data
     #...by address.
