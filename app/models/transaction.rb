@@ -17,7 +17,6 @@ class Transaction < ApplicationRecord
     else
       address_response = JSON.parse HTTParty.get("http://api-ropsten.etherscan.io/api?module=account&action=txlist&address=#{address}&startblock=0&sort=asc&apikey=7HH9ACPSQ4K45G31J8C488EUGMTRGYAI4J").response.body
     end
-
     address_transaction = nil
     (address_response['result']).each do |t|
       if t['hash'] == transaction_data['result']['hash']
@@ -32,7 +31,7 @@ class Transaction < ApplicationRecord
       puts "*** error could not find transaction details using from address.  transaction.rb ***"
       transaction_data['txreceipt_status'] = ""
     end
-    
+
     self.data = transaction_data.to_json
   end #end full_date()
 end
