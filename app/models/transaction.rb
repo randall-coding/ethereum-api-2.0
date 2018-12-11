@@ -3,8 +3,9 @@ class Transaction < ApplicationRecord
   validates :Thash ,uniqueness:true, presence:true
   validates :data , presence:true
 
-  def full_data(mode)
+  def api_ethaddr(mode)
     tx_data = JSON.parse self.data
+    tx_data2 = nil
     address = tx_data['result']['from']
 
     if(mode == 'mainnet')
@@ -12,7 +13,7 @@ class Transaction < ApplicationRecord
     else
       addr_response = JSON.parse HTTParty.get("http://api-ropsten.etherscan.io/api?module=account&action=txlist&address=#{address}&startblock=0&sort=asc&apikey=7HH9ACPSQ4K45G31J8C488EUGMTRGYAI4J").response.body
     end
-    tx_data2 = nil
+
     (addr_response['result']).each do |t|
       if t['hash'] == tx_data['result']['hash']
         tx_data2 = t
@@ -29,4 +30,17 @@ class Transaction < ApplicationRecord
 
     self.data = tx_data.to_json
   end #end full_date()
+
+  def pretty_values()
+    #convert ether, gas price number from 1E-18 to normal values
+    tx_data = JSON.parse self.data
+    divisor = BigDecimal.new(10**18)
+
+    value = BigDecimal.new(tx_data['result']['value'].to_i(16))
+    tx_data['result']['value'] = value /divisor
+    gas_price = BigDecimal.new(tx_data['result']['gasPrice'].to_i(16))
+    tx_data['result']['gasPrice'] = gas_price / divisor
+
+    self.data = tx_data.to_json
+  end #end adjust_values()
 end
