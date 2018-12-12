@@ -11,11 +11,11 @@
       </div>
       <div class="mode">
         <fieldset class="mode">
-            <input type= "radio" value="mainnet" name="mode" <% if params[:mode] == 'mainnet' %>checked<% else %><%end%>>
-              Mainnet
+            <input type= "radio" value="mainnet" name="mode" id="mode-mainnet" <% if params[:mode] == 'mainnet' %>checked<% else %><%end%>>
+              <label for="mode-mainnet"> Mainnet </label>
            </input>
-            <input type="radio" value="ropsten" name="mode" <% if params[:mode] == 'ropsten' %>checked<% else %><%end%>>
-              Ropsten
+            <input type="radio" value="ropsten" name="mode"  id="mode-ropsten" <% if params[:mode] == 'ropsten' %>checked<% else %><%end%>>
+              <label for="mode-ropsten"> Ropsten  </label>
             </input>
         </fieldset>
         <button id="btn-search1" class="search" type="submit"> Search </button>

@@ -43,9 +43,5 @@ include TransactionHelper
         @status = "Available for post BYZANTIUM blocks only"; @status_color = "orange";
       end
     end
-    puts "\n\n\n\n***FINAL @txInfo"
-    puts @txInfo
-    puts "\n\n\n\n***FINAL @txInfo"
-    puts @txInfo['response'].to_json
   end #end index
 end #end class
