@@ -8,3 +8,4 @@ I made sure to made this code look closer to "finished" rather than simply a fir
 * Tests created for model, new styles added, older styles deleted.
 * Comments cleaned up and made to be concise.
 * Code is fully functional on my computer / browser (Firefox).
+* Sqlite DB
