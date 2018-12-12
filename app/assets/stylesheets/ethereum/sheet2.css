@@ -1,0 +1,108 @@
+ 
+        .cbs {margin-bottom: 14px;}
+        .inputbox { font-size: 13px !important; padding: 4px;}
+        @media (max-width: 780px) {.hidden-su-xs {display: none !important;}}
+        @media (min-width: 781px) {.visible-su-xs {display: none;}}
+        @media (max-width: 780px) {.hidden2-su-xs {font-weight: bold !important;}}
+        .glow {
+          display: inline-block;
+          -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-property: box-shadow;
+          transition-property: box-shadow;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+          -webkit-transform: translateZ(0);
+          -ms-transform: translateZ(0);
+          transform: translateZ(0);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        }
+        .glow:hover {
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+        }
+        .table-decoded {
+           width:1px;
+           background-color: #eeeeee;
+        }
+        .table-decoded tr td {
+            overflow:hidden;
+            word-break:break-word;
+        }
+        .table-decoded thead tr, .table-decoded tbody tr {
+            font-size:small;
+            font-family: monospace;      
+        }
+        .table-decoded td {
+            padding: 2px !important;
+            padding-left: 5px !important;
+        }
+        .nav-tabs-decoded li a {
+            font-size :12px !important;
+        }
+        .scrollbox {
+            overflow-y:auto;
+            max-height :170px;
+            border: solid 1px;
+        }
+         .scrollbox-noborder{
+            height :280px;            
+        }
+        #overlayMain {
+            background: #ffffff;
+            background: rgba(255,255,255,.4);
+            color: #666666;            
+            z-index: 5000;
+            top: 0;
+            left: 0;
+            float: left;
+            text-align: left; 
+            display:block;
+            min-height :182px;
+           
+        }        
+        .selected {
+             background: #eee;
+        }        
+        .dropdown-menu a {
+            cursor:pointer;
+        }    
+        .mCustomScrollbar {
+            height:auto !important;
+            max-height:382px;
+        }
+        .customScroll::after {
+            bottom: 0;
+            pointer-events: none;
+            content: '';
+            background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(255, 255, 255, 1));
+            background: -webkit-gradient(left bottom, left top, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(255, 255, 255, 1)));
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(255, 255, 255, 1));
+            background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(255, 255, 255, 1));
+            background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(255, 255, 255, 1));
+            background: linear-gradient(top, rgba(0,0,0,0) 0%, rgba(255, 255, 255, 1));
+            background: linear-gradient(to top, white, rgba(255,255,255,0));
+            position: absolute;
+            display: block;
+            left: 0;
+            width: 100%;
+            height: 45px;
+        }       
+        .zoom {
+            padding: 0px;            
+            background-color:#ECF0F1;
+            transition: transform .3s;
+            width: 65px;
+            height: 65px;
+            margin: 0 auto;            
+        }
+        .zoom:hover {
+                -ms-transform: scale(1.5); 
+                -webkit-transform: scale(1.5); 
+                transform: scale(1.5);                
+                padding-top:5px;                  
+        }
+        .mCustomScrollBox {
+            overflow: inherit !important;
+            padding-right:40px;
+        }
+       
+    
