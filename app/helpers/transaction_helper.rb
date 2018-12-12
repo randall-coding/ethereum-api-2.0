@@ -5,7 +5,7 @@ module TransactionHelper
     txInfo = {}
     full_response = JSON.parse HTTParty.get("#{@url}").response.body
     txInfo['response'] = full_response['result']
-    
+
     #set mode
     if(txInfo['response'])
       txInfo['response']['type'] = params[:mode]
@@ -39,7 +39,7 @@ module TransactionHelper
 
       return tx
     else
-      puts "no response"
+      puts "no response from etherscan addr api"
       return nil
     end
 
