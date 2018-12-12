@@ -23,19 +23,24 @@
               </h3>
             </span></h3></div>
 
-            <%if @txInfo['hash'] != 0  && (@txInfo['response']['result'] && @txInfo['response']['result']['type'] == params[:mode]) %>
+            <%if @txInfo['hash'] != 0  && (@txInfo['response'] && @txInfo['response']['type'] == params[:mode]) %>
               <table class="info">
                 <tr> <td class="type1"> Type: </td> <td class="type2"> <%= params[:mode] %> </td> </tr>
                 <tr> <td class="type1"> TxHash: </td> <td class="type2"> <%= @txInfo['hash'] %> </td> </tr>
-                <tr> <td class="type1"> TxReceipt Status: </td> <td class="type2" style="color:green"> <%= @txInfo['response']['txreceipt_status'] %> </td> </tr>
+                <tr> <td class="type1"> TxReceipt Status: </td> <td class="type2" style="color:<%= @status_color %>" title="Success/Fail available for post BYZANTIUM blocks only"> <%= @status%> </td> </tr>
                 <tr> <td class="type1"> Timestamp </td> <td class="type2" style="color:blue">
                   <%= if @txInfo['response']['timeStamp'] then Time.at(@txInfo['response']['timeStamp'].to_i).to_s end%> </td> </tr>
-                <tr> <td class="type1"> Block Height: </td> <td class="type2"> <a href="https://etherscan.io/block/<%= @txInfo['response']['result']['blockNumber'].to_i(16).to_s%>"> <%= @txInfo['response']['result']['blockNumber'].to_i(16).to_s %></a> </td> </tr>
-                <tr> <td class="type1"> From: </td> <td class="type2">  <a href="https://etherscan.io/address/<%= @txInfo['response']['result']['from'] %> "> <%= @txInfo['response']['result']['from'] %>    </a> </td>  </tr>
-                <tr> <td class="type1"> To: </td> <td class="type2"> <a href="https://etherscan.io/address/<%= @txInfo['response']['result']['to'] %> " class="wordwrap"><%= @txInfo['response']['result']['to'] %> </a>       </td>   </tr>
-                <tr> <td class="type1"> Value: </td> <td class="type2">     <%= @txInfo['response']['result']['gasPrice'].to_s %> Ether     </td> </tr>
-                <tr> <td class="type1"> Gas: </td> <td class="type2">   <%= @txInfo['response']['result']['gas'].to_i(16).to_s %>       </td> </tr>
-                <tr> <td class="type1"> Gas Price: </td> <td class="type2">  <%= @txInfo['response']['result']['gasPrice'].to_s %> Ether   </td> </tr>
+                <tr> <td class="type1"> Block Height: </td> <td class="type2"> <a href="https://etherscan.io/block/<%= @txInfo['response']['blockNumber'].to_i(16).to_s%>"> <%= @txInfo['response']['blockNumber'].to_i(16).to_s %></a> </td> </tr>
+                <tr> <td class="type1"> From: </td> <td class="type2">  <a href="https://etherscan.io/address/<%= @txInfo['response']['from'] %> "> <%= @txInfo['response']['from'] %>    </a> </td>  </tr>
+                <tr> <td class="type1"> To: </td> <td class="type2"> <a href="https://etherscan.io/address/<%= @txInfo['response']['to'] %> " class="wordwrap"><%= @txInfo['response']['to'] %> </a>       </td>   </tr>
+                <tr> <td class="type1"> Value: </td> <td class="type2">     <%= @txInfo['response']['gasPrice'].to_s %> Ether     </td> </tr>
+                <tr> <td class="type1"> Gas Limit: </td> <td class="type2">   <%= @txInfo['response']['gas'].to_i(16).to_s %>       </td> </tr>
+                <tr> <td class="type1"> Gas Used By Transaction: </td> <td class="type2">  <%= @txInfo['response']['gasUsed'].to_s %> Ether   </td> </tr>
+                <tr> <td class="type1"> Gas Price: </td> <td class="type2">  <%= @txInfo['response']['gasPrice'].to_s %> Ether   </td> </tr>
+                <tr> <td class="type1"> Actual Tx Cost/Fee: </td> <td class="type2">  <%= @txInfo['response']['gasPrice'].to_f*@txInfo['response']['gasUsed'].to_f %> Ether   </td> </tr>
+                <tr> <td class="type1"> Nonce & (Position) </td> <td class="type2">  <%= @txInfo['response']['nonce'].to_s %> | {<%= @txInfo['response']['position'].to_s %>}   </td> </tr>
+                <tr> <td class="type1"> Input Data </td> <td class="type2">  <%= @txInfo['response']['gasPrice'].to_s %> Ether   </td> </tr>
+
               </table>
             <% else %>
               <div class="failed" style="color:red">
