@@ -1,7 +1,10 @@
 # To reviewers
 
-Hello this is Randall.  I knew nothing about Ethereum before making this project.
-  ...but I learned about Ethereum as I as I went and I really enjoyed it.  Thanks for the project.
+I made sure to made this code look closer to "finished" rather than simply a first draft that works.  
 
-## MVP
-The website is an MVP (minimum viable product) showing the basic functionality asked for.  With more time I can increase usability and formatting to any level desired.   
+Code has been modularized, complex calculations are placed inside models when possible, minimal logic is placed in views.  
+Added additional transaction details.
+Variables renamed for easier reading and understanding.  Mainnet/Ropsten searches replaced with radio button. 
+Tests created for model, new styles added, older styles deleted.
+Comments cleaned up and made to be concise.
+Code is fully functional on my computer / browser (Firefox).
