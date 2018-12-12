@@ -8,8 +8,6 @@ include TransactionHelper
     unless(params[:hash])
       @request = "get"
     end
-    puts "\n\n\nParams mode..."
-    puts params[:mode]
     #initialize variables
     @txInfo = {}
     @txInfo['hash'] = params[:hash]? params[:hash].strip : 0
@@ -40,19 +38,11 @@ include TransactionHelper
       @status_color = @status.to_i == 1? 'green' : 'red'
       if (@status == '1')
         @status="Success"
-      elsif (@status ==' 0')
+      elsif (@status =='0')
         @status="Failed"
       else
-        $status = "Available for post BYZANTIUM blocks only"; @status_color == "orange";
+        @status = "Available for post BYZANTIUM blocks only"; @status_color = "orange";
       end
     end
-    
-    # puts "\n\n\n\n***FINAL @txInfo"
-    # puts @txInfo
-    # puts "test"
-    # puts @txInfo['hash'] != 0
-    # puts (@txInfo['response']) != nil
-    # puts @txInfo['response']['type']
-    # puts params[:mode]
   end #end index
 end #end class
