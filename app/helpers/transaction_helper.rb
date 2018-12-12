@@ -5,12 +5,25 @@ module TransactionHelper
     txInfo = {}
     full_response = JSON.parse HTTParty.get("#{@url}").response.body
     txInfo['response'] = full_response['result']
-
+    puts "full_response"
+    puts full_response
+    puts "\nurl"
+    puts @url
     #set mode
     if(txInfo['response'])
       txInfo['response']['type'] = params[:mode]
     end
-    txInfo['response'] = JSON.parse make_transaction(txInfo).data
+
+    transaction = make_transaction(txInfo)
+
+    if  (transaction)
+      txInfo['response'] =(JSON.parse transaction.data)
+      puts "Yes"
+    else
+      txInfo['response'] = nil
+      puts "No"
+    end
+
     return txInfo['response']
   end #end api_ethscan()
 
@@ -31,6 +44,7 @@ module TransactionHelper
 
       return tx
     else
+      puts "no response"
       return nil
     end
 

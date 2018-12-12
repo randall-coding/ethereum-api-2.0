@@ -1,29 +1,39 @@
 <html>
 
 <body>
-  <h1> Randall Babaoye's submission </h1>
-  <h2> Ethereum transaction information.</h2>
-  <form action="">
-    <div class="searchbar">
-      Enter transaction # <input id="search-transaction" name="hash" type="text" placeholder="transaction number"
-      value="<% if @txInfo['hash'] != 0 %> <%= @txInfo['hash'] %> <%end%>" >  </input>
-      <input type="hidden" value="mainnet" name="mode" class="mode">
-      <button id="btn-search1" class="search"> Search Mainnet </button>
-      <button id="btn-search2"  class="search" > Search Ropsten </button>
-    </div>
-  </form>
-  <div class="tab-content" style="padding: 1px 0;">
-    <div class="tab-pane fade in active" id="overview">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Transaction Information &nbsp;
-            <span class="pull-right">
-              <h3 class="panel-title">
-                <img src="/images/EllipsisSpinner3.gif" id="spinnerwait" style="display:none; margin-bottom:2px; margin-top:0px; margin-right:20px">
-              </h3>
-            </span></h3></div>
+  <header> <h1> Indorse Assignment.</h1>  </header>
 
-            <%if @txInfo['hash'] != 0  && (@txInfo['response'] && @txInfo['response']['type'] == params[:mode]) %>
+  <div class="searchbar">
+    <form action="/" method="post">
+      <div class="search-tbox">
+        Transaction # <input id="search-transaction" name="hash" type="text" placeholder="transaction number"
+        value="<% if @txInfo['hash'] != 0 %> <%= @txInfo['hash'] %> <%end%>" >  </input>
+      </div>
+      <div class="mode">
+        <fieldset class="mode">
+            <input type= "radio" value="mainnet" name="mode" <% if params[:mode] == 'mainnet' %>checked<% else %><%end%>>
+              Mainnet
+           </input>
+            <input type="radio" value="ropsten" name="mode" <% if params[:mode] == 'ropsten' %>checked<% else %><%end%>>
+              Ropsten
+            </input>
+        </fieldset>
+        <button id="btn-search1" class="search" type="submit"> Search </button>
+
+        <!-- <button id="btn-search2"  class="search" type="submit" > Search Ropsten </button> -->
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      </div>
+    </form>
+  </div>
+  <div class="tab-content" style="padding: 1px 0;">
+    <div class="" id="overview">
+      <div class="">
+        <div class="panel-title">
+          <div class="h2"> <h2> Ethereum transaction information.</h2> &nbsp;
+          </div>
+        </div>
+
+            <%if @txInfo['hash'] != 0  && (@txInfo['response']) && (@txInfo['response']['type'] == params[:mode]) %>
               <table class="info">
                 <tr> <td class="type1"> Type: </td> <td class="type2"> <%= params[:mode] %> </td> </tr>
                 <tr> <td class="type1"> TxHash: </td> <td class="type2"> <%= @txInfo['hash'] %> </td> </tr>
@@ -42,6 +52,7 @@
                 <tr> <td class="type1"> Input Data </td> <td class="type2">  <%= @txInfo['response']['gasPrice'].to_s %> Ether   </td> </tr>
 
               </table>
+            <% elsif @request == "get" %>
             <% else %>
               <div class="failed" style="color:red">
                 Could not obtain data.  Try a different transaction hash

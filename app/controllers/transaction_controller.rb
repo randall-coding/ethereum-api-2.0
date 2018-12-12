@@ -5,6 +5,11 @@ include TransactionHelper
 
   #The main page function
   def index
+    unless(params[:hash])
+      @request = "get"
+    end
+    puts "\n\n\nParams mode..."
+    puts params[:mode]
     #initialize variables
     @txInfo = {}
     @txInfo['hash'] = params[:hash]? params[:hash].strip : 0
@@ -22,8 +27,8 @@ include TransactionHelper
     unless(@cached)
       #New API call.
       @txInfo['response'] = api_ethscan()
-      #puts "\n\n\n\n***FINAL @txInfo"
-      #puts @txInfo
+      puts "\n\n\n\n***FINAL @txInfo"
+      puts @txInfo
     else
       #use cached
       @txInfo['response'] = JSON.parse @cached.data
@@ -41,5 +46,13 @@ include TransactionHelper
         $status = "Available for post BYZANTIUM blocks only"; @status_color == "orange";
       end
     end
+    
+    # puts "\n\n\n\n***FINAL @txInfo"
+    # puts @txInfo
+    # puts "test"
+    # puts @txInfo['hash'] != 0
+    # puts (@txInfo['response']) != nil
+    # puts @txInfo['response']['type']
+    # puts params[:mode]
   end #end index
 end #end class

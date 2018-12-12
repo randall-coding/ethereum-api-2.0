@@ -1,17 +1,38 @@
 // Place all the styles related to the transaction controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  padding-top: 0;
+  margin-top: 0;
+}
+
+
 form{
   padding-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  width:930px;
 }
 
 h2{
   font-size: 1.5em;
   text-align: center;
-  padding-right: 50px;
+  padding-left: 10px;
+  display: inline;
+}
+
+h1{
+    text-align: center;
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 25px;
+}
+
+h2{
+
+}
+header{
+    background-color: rgb(217, 237, 247);
+    padding-top: 0;
+    margin-top: 0;
 }
 
 button.search{
@@ -19,11 +40,40 @@ button.search{
   margin-left: 0px;
 }
 
+div.h2{
+  background-color: rgb(217, 237, 247);
+  padding-top: 0;
+  margin-top: 15px;
+}
+
+div.mode{
+  float:right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.search-tbox{
+  float:right;
+}
+
+div.searchbar{
+  display: block;
+  margin-bottom:50px;
+  margin-left: auto;
+  margin-right: auto;
+  width:700px;
+}
+
+
+fieldset.mode{
+  display:inline;
+}
+
 table.info{
   margin-left: 15px;
-
   & td.type1{
     width:180px;
+
     padding-bottom: 15px;
   }
 
