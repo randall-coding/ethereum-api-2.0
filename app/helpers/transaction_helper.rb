@@ -34,7 +34,7 @@ module TransactionHelper
       if (tx.save)
         puts "transaction saved"
       else
-        puts "transaction not saved"
+        puts "transaction not saved, save error"
       end
 
       return tx
