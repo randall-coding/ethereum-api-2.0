@@ -6,8 +6,8 @@
   <div class="searchbar">
     <form action="/" method="post">
       <div class="search-tbox">
-        Transaction # <input id="search-transaction" name="hash" type="text" placeholder="transaction number"
-        value="<% if @txInfo['hash'] != 0 %>  <%= @txInfo['hash'] %>    <%end%>" >  </input>
+        Transaction # <input id="search-transaction" name="hash" type="text" placeholder="ex. 0x6f61ee4dc528443d8b6ab12240a53588fb72c659e1abfe6e6cc0d2346359be4a"
+          value="<% if @txInfo['hash'] != 0 %>  <%= @txInfo['hash'] %>    <%end%>" >  </input>
       </div>
       <div class="mode">
         <fieldset class="mode">
