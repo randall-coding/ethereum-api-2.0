@@ -1,4 +1,4 @@
-# Completely remastered version.  
+# Ethereum-api remastered.  
 
 I made sure to make this code looks more like my best work rather than simply a first draft / MVP (ala Agile development).  
 
@@ -10,6 +10,7 @@ I made sure to make this code looks more like my best work rather than simply a 
 * Tests created for transaction model and for "basic search" integration.  Folder spec/models and spec/features.  Rspec/Capybara used.  
 * New styles added, older styles deleted.
 * Comments cleaned up and made to be concise.
-* Code is fully functional on my computer / browser (Firefox) and will be deployed on Heroku ( ).
-* Sqlite DB used
+* Code is fully functional on my computer / browser (Firefox) and now deployed on Heroku (https://www.randallcoding.com/api/ethereum).
+* Sqlite DB used 
 
+*Image example
