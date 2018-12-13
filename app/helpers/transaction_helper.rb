@@ -39,7 +39,7 @@ module TransactionHelper
 
       return tx
     else
-      puts "no response from etherscan addr api"
+      #puts "no response from etherscan addr api"
       return nil
     end
 
