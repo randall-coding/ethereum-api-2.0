@@ -15,7 +15,5 @@ I made sure to make this code looks more like my best work rather than simply a 
 
 ![alt Image example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum1.png)
 
-<br>
-
 Tests are all working.  Try them with `bundle exec rspec` (make sure rspec is installed with `rails generate rspec:install`)
 ![alt Test suite example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum_tests.png)
