@@ -8,10 +8,10 @@ I made sure to make this code looks more like my best work rather than simply a 
 * Variables in controller and model renamed for easier reading.  
 * Mainnet/Ropsten buttons replaced with radio button. 
 * Tests created for transaction model and for "basic search" integration.  Folder spec/models and spec/features.  Rspec 3.6/Capybara used.  
-* New styles added, older styles deleted.
-* Comments cleaned up and made to be concise.
+* New styles added, older styles deleted.  Comments cleaned up and made to be concise.
 * Sqlite DB used in development
-* Code is fully functional on my computer / browser (Firefox) and now deployed on Heroku (https://www.randallcoding.com/api/ethereum).
+* Code is fully functional on my computer / browser (Firefox)
+* Now deployed on Heroku (https://www.randallcoding.com/api/ethereum).
 
 ### Search example
 ![alt Image example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum1.png)
