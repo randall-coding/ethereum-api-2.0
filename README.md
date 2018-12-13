@@ -11,7 +11,7 @@ I made sure to make this code looks more like my best work rather than simply a 
 * New styles added, older styles deleted.
 * Comments cleaned up and made to be concise.
 * Code is fully functional on my computer / browser (Firefox) and now deployed on Heroku (https://www.randallcoding.com/api/ethereum).
-* Sqlite DB used 
+* Sqlite DB used in development
 
 ![alt Image example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum1.png)
 
