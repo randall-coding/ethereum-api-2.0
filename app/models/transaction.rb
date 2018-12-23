@@ -1,6 +1,6 @@
 class Transaction < ApplicationRecord
   require 'httparty'
-  validates :Thash ,uniqueness:true, presence:true
+  validates :txHash ,uniqueness:true, presence:true
   validates :data , presence:true
 
   def api_ethaddr(mode)

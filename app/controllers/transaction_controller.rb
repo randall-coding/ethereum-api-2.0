@@ -12,6 +12,7 @@ include TransactionHelper
     @txInfo = {}
     @txInfo['hash'] = params[:hash]? params[:hash].strip : 0
     @txInfo['response'] = nil
+    params[:mode] ||= 'mainnet'
 
     if( params[:mode] == "ropsten")
       #note, in production I would use ENV['eth_apikey'].  apikey is posted as plain text for demonstration.
@@ -20,18 +21,17 @@ include TransactionHelper
       @url = "https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=#{@txInfo['hash']}&apikey=7HH9ACPSQ4K45G31J8C488EUGMTRGYAI4J"
     end
 
-    @cached = Transaction.find_by(Thash:@txInfo['hash'])
+    @cached = Transaction.find_by(txHash:@txInfo['hash'])
 
     unless(@cached)
       #New API call.
       @txInfo['response'] = api_ethscan()
-
     else
       #use cached
       @txInfo['response'] = JSON.parse @cached.data
     end #end if
 
-    #set status variable
+    #set status variables
     if(@txInfo['response'])
       @status =  @txInfo['response']['txreceipt_status']
       @status_color = @status.to_i == 1? 'green' : 'red'
@@ -40,8 +40,12 @@ include TransactionHelper
       elsif (@status =='0')
         @status="Failed"
       else
-        @status = "Available for post BYZANTIUM blocks only"; @status_color = "orange";
+        @status = "Available for post BYZANTIUM blocks only"; @status_color = "rgb(255, 88, 0)";
       end
     end
+
+    #debug puts @cached.txHash
+    # puts "txInfo......."
+    # puts @txInfo
   end #end index
 end #end class

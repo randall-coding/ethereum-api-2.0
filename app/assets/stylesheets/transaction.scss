@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$baby_blue: rgb(217, 237, 247);
+
 body{
   padding-top: 0;
   margin-top: 0;
@@ -30,9 +32,17 @@ h2{
 
 }
 header{
-    background-color: rgb(217, 237, 247);
+    background-color: $baby_blue;
     padding-top: 0;
     margin-top: 0;
+}
+
+a.examples{
+    margin-right:30px;
+}
+
+button.examples{
+    margin-right:30px;
 }
 
 button.search{
@@ -41,7 +51,7 @@ button.search{
 }
 
 div.h2{
-  background-color: rgb(217, 237, 247);
+  background-color: $baby_blue;
   padding-top: 0;
   margin-top: 15px;
 }
@@ -50,6 +60,30 @@ div.mode{
   float:right;
   margin-left: auto;
   margin-right: auto;
+}
+
+div.popup-txhash{
+    opacity: 1.0;
+    display:none;
+    //position:absolute;
+    // left:25%;
+    // top: 10%;
+    width:60%;
+    margin:0;
+    padding-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 11;
+    color:black;
+    background-color: white;
+    & h3 {
+      padding-left: 10px;
+    }
+    & ul{
+      list-style:disc;
+      padding:0;
+      padding-left: 10px;
+    }
 }
 
 div.search-tbox{

@@ -3,6 +3,7 @@
 <body>
   <header> <h1> Indorse Assignment 2.0</h1>  </header>
 
+  <!-- Search bar and button -->
   <div class="searchbar">
     <form action="/" method="post">
       <div class="search-tbox">
@@ -10,6 +11,7 @@
           value="<% if @txInfo['hash'] != 0 %>  <%= @txInfo['hash'] %>    <%end%>" >  </input>
       </div>
       <div class="mode">
+        <a href="javascript:void(0)" class='examples'> Example numbers </a>
         <fieldset class="mode">
             <input type= "radio" value="mainnet" name="mode" id="mode-mainnet" <% if params[:mode] == 'mainnet' %>checked<% else %><%end%>>
               <label for="mode-mainnet"> Mainnet </label>
@@ -23,6 +25,20 @@
       </div>
     </form>
   </div>
+
+  <!-- Popup transaction hash helper -->
+  <div class="popup-txhash">
+    <ul>
+      <li> 0x4bb9ac04e46da2d38ea512da285d204f0999b2923f0da3e90ee24b19920d9d2a  </li>
+      <li> 0xd74ed15199eecbbee491e9c67404ae8eedd3429c05f433db8fd77cc637c141a9 </li>
+      <li> 0xede8b044555efca73941922ae2befc2c6875eb5fda80eef259b7ebf26dec2d27 </li>
+      <li> 0xcd583d4b98bf07f4bb7858d2f38b73b89b63fefc40fe02ceae8bbfee8f87571a </li>
+      <li> 0x42bad9bd552be27116eda691a7811c67c3244d379aa07530b78c0f19339fc4b8 </li>
+    </ul>
+    <h3> For more hash numbers visit <a href="https://etherscan.io/txs" target="_blank"> Etherscan's website. </a>  </h3>
+  </div>
+
+  <!-- Main search output -->
   <div class="tab-content" style="padding: 1px 0;">
     <div class="" id="overview">
       <div class="">

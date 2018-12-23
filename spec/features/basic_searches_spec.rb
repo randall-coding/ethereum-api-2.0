@@ -47,12 +47,12 @@ RSpec.describe "Search page", :type => [:feature, :request] do
       expect(current_path).to eq(root_path)
       expect(page.has_content?("Success")).to be false
     end
-    it "is given no input" do
+    it "is given no input at all" do
       fill_in 'search-transaction', with: ""
       click_button "Search"
       expect(page.has_content?("TxReceipt Status:")).to be false
     end
-    it "is given no hash input (Ropsten)" do
+    it "is given no input (Ropsten)" do
       fill_in 'search-transaction', with: ""
       choose "Ropsten"
       click_button "Search"

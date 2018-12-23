@@ -26,7 +26,7 @@ module TransactionHelper
     #save new transaction if valid response.  returns saved transaction
     if(txInfo['response'])
       tx = Transaction.new
-      tx.Thash = params[:hash].strip
+      tx.txHash = params[:hash].strip
       tx.data= txInfo['response'].to_json
       tx.api_ethaddr(params[:mode])  #expand data with API call (by address)
       tx.pretty_values()
