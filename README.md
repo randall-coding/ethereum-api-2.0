@@ -1,6 +1,6 @@
 # Ethereum-api remastered.  
 
-I made sure to make this code looks more like my best work rather than simply a first draft / MVP (ala Agile development).  
+I made sure to make this code look closer to production work rather than simply a first draft / MVP (ala Agile development).  
 
 ## Changes
 * Code has been modularized, complex calculations are placed inside models when possible, minimal logic is placed in views.  
