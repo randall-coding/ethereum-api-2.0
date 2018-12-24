@@ -5,7 +5,6 @@ include TransactionHelper
 
   #The main page function
   def index
-    return
     unless(params[:hash])
       @request = "get"
     end
