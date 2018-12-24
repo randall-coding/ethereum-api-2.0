@@ -7,9 +7,9 @@ I made sure to make this code look closer to production work rather than simply 
 * Added additional transaction details (Total cost calculation, nonce/position, success has catch string if pre-Byzantium transaction).
 * Variables in controller and model renamed for easier reading.  
 * Mainnet/Ropsten buttons replaced with radio button. 
-* Tests created for transaction model and for "basic search" integration.  Folder spec/models and spec/features.  Rspec 3.6/Capybara used.  
+* Tests created for transaction model and for "basic search" integration.  Folder spec/models and spec/features.  Rspec 3.8/Capybara 3.12.0 used.  
 * New styles added, older styles deleted.  Comments cleaned up and made to be concise.
-* Sqlite DB used in development
+* Sqlite DB used in development, Postgres in production
 * Code is fully functional on my computer / browser (Firefox)
 * Now deployed on Heroku (https://www.randallcoding.com/api/ethereum).
 
