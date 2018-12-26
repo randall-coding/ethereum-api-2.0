@@ -1,4 +1,4 @@
-# Ethereum-api remastered.  
+# Ethereum-api remastered  
 
 I made sure to make this code look closer to production work rather than simply a first draft / MVP (ala Agile development).  
 
@@ -6,7 +6,7 @@ I made sure to make this code look closer to production work rather than simply 
 * Code has been modularized, complex calculations are placed inside models when possible, minimal logic is placed in views.  
 * Added additional transaction details (Total cost calculation, nonce/position, success has catch string if pre-Byzantium transaction).
 * Variables in controller and model renamed for easier reading.  
-* Mainnet/Ropsten buttons replaced with radio button. 
+* Mainnet/Ropsten buttons replaced with radio button.
 * Tests created for transaction model and for "basic search" integration.  Folder spec/models and spec/features.  Rspec 3.8/Capybara 3.12.0 used.  
 * New styles added, older styles deleted.  Comments cleaned up and made to be concise.
 * Sqlite DB used in development, Postgres in production
@@ -18,8 +18,11 @@ I made sure to make this code look closer to production work rather than simply 
 ___
 ### If you see this message ![alt Image error](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum2.png)
 ^ This might mean you need to try Ropsten instead of Mainnet or vice verse.  Altneratively check to make sure you typed in
-the transaction hash correctly 
+the transaction hash correctly
 ___
 ### Tests are working on my system.  
 Try the test suite with `bundle exec rspec`. Make sure rspec is installed with `rails generate rspec:install`
 ![alt Test suite example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum_tests.png)
+
+### CircleCI is implemented for this repository
+Upon upload of new branch, branch code is automatically checked against all spec using CirclCI continuous integration service.
