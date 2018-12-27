@@ -5,6 +5,12 @@ include TransactionHelper
 
   #The main page function
   def index
+
+    #debug
+    puts "My params: "
+    pp params
+    puts ""
+
     unless(params[:hash])
       @request = "get"
     end
