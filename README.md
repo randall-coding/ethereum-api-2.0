@@ -32,6 +32,7 @@ Welcome to the future of cryptocurrency
 ![alt Image example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum1.png)
 ___
 <br>
+
 ### If you see this message ![alt Image error](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum2.png)
 This might mean you need to try Ropsten instead of Mainnet or vice verse.  Altneratively check to make sure you typed in
 the transaction hash correctly
