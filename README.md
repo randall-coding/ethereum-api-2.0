@@ -12,6 +12,17 @@ Welcome to the future of cryptocurrency
 * Code is fully functional on my computer / browser (Firefox)
 * Now deployed on Heroku (https://www.randallcoding.com/api/ethereum).
 
+## Features 
+* Search the Ethereum blockchain using Etherscan API
+
+* Search any Etherscan compliant transaction hashs (see https://etherscan.io/txs for a list of transactions)
+
+* Searches Mainnet (main network) and Ropsten (test network)
+
+* Deployed on Heroku
+
+## Getting started
+
 ### Search example
 ![alt Image example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum1.png)
 ___
