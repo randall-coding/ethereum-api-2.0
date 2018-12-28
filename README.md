@@ -21,6 +21,7 @@ the transaction hash correctly
 ___
 ### Tests are working on my system.  
 Try the test suite with `bundle exec rspec spec`. Make sure rspec is installed with `rails generate rspec:install`  Rspec version is 3.8, Capybara is 3.12.0
+
 ![alt Test suite example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum_tests.png)
 
 ### CircleCI is implemented for this repository
