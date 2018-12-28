@@ -5,12 +5,7 @@ include TransactionHelper
 
   #The main page function
   def index
-
-    #debug
-    puts "My params: "
-    pp params
-    puts ""
-
+    #POST or GET?
     unless(params[:hash])
       @request = "get"
     end
@@ -50,8 +45,10 @@ include TransactionHelper
       end
     end
 
-    #debug puts @cached.txHash
-    # puts "txInfo......."
-    # puts @txInfo
+    #debug
+    #  puts @cached.data
+    #  puts "\ntxInfo......."
+    #  puts @txInfo
   end #end index
-end #end class
+
+end #end controller class

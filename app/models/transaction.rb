@@ -15,7 +15,7 @@ class Transaction < ApplicationRecord
     end
     addr_response = addr_response['result']
 
-    (addr_response).each do |t|
+    addr_response.each do |t|
       if t['hash'] == tx_data['hash']
         tx_data2 = t
       end
