@@ -25,4 +25,4 @@ Try the test suite with `bundle exec rspec spec`. Make sure rspec is installed w
 ![alt Test suite example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum_tests.png)
 
 ### CircleCI is implemented for this repository
-Upon upload of new branch, branch code is automatically checked against all spec using CirclCI continuous integration service.
+Upon upload of new branch, branch code is automatically checked against all spec using CircleCI continuous integration service.
