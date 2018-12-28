@@ -1,5 +1,11 @@
 # Ethereum-api remastered  
 Welcome to the future of cryptocurrency
+
+## Table of Contents
+* [Changes](#changes)
+* [Features and Function](#features)
+* [Getting Started](#getting-started)
+
 ## Changes
 * Code is refactored, complex calculations are placed inside models when possible, minimal logic is placed in views.  
 * Added additional transaction details (Total cost calculation, nonce/position, success has catch string if pre-Byzantium transaction).
@@ -22,14 +28,16 @@ Welcome to the future of cryptocurrency
 * Deployed on Heroku
 
 ## Getting started
-
 ### Search example
 ![alt Image example](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum1.png)
 ___
+<br>
+
 ### If you see this message ![alt Image error](https://raw.githubusercontent.com/Randall-Coding/Showcase/master/app/assets/images/ethereum2.png)
 This might mean you need to try Ropsten instead of Mainnet or vice verse.  Altneratively check to make sure you typed in
 the transaction hash correctly
 ___
+<br>
 ### Tests are working on my system.  
 Try the test suite with `bundle exec rspec spec`. Make sure rspec is installed with `rails generate rspec:install`  Rspec version is 3.8, Capybara is 3.12.0
 
