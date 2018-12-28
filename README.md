@@ -18,7 +18,7 @@ Welcome to the future of cryptocurrency
 * Code is fully functional on my computer / browser (Firefox)
 * Now deployed on Heroku (https://www.randallcoding.com/api/ethereum).
 
-## Features 
+## Features
 * Search the Ethereum blockchain using Etherscan API
 
 * Search any Etherscan compliant transaction hashs (see https://etherscan.io/txs for a list of transactions)
@@ -38,6 +38,7 @@ This might mean you need to try Ropsten instead of Mainnet or vice verse.  Altne
 the transaction hash correctly
 ___
 <br>
+
 ### Tests are working on my system.  
 Try the test suite with `bundle exec rspec spec`. Make sure rspec is installed with `rails generate rspec:install`  Rspec version is 3.8, Capybara is 3.12.0
 
