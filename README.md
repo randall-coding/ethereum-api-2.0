@@ -2,7 +2,7 @@
 Welcome to the future of cryptocurrency
 
 ## Specs
-Ruby 2.5.1    Rails 5.2.2   Sqlite  
+Ruby 2.5.1    Rails 5.2.2   Sqlite 1.3.13  Etherscan API  
 
 ## Table of Contents
 * [Changes](#changes)
