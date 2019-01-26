@@ -1,10 +1,22 @@
 # Ethereum-api remastered  
 Welcome to the future of cryptocurrency
 
+## Specs
+Ruby 2.5.1    Rails 5.2.2   Sqlite  
+
 ## Table of Contents
 * [Changes](#changes)
 * [Features and Function](#features)
 * [Getting Started](#getting-started)
+
+## Features
+* Search the Ethereum blockchain using Etherscan API
+
+* Search any Etherscan compliant transaction hashs (see https://etherscan.io/txs for a list of transactions)
+
+* Searches Mainnet (main network) and Ropsten (test network)
+
+* Deployed on Heroku
 
 ## Changes
 * Code is refactored, complex calculations are placed inside models when possible, minimal logic is placed in views.  
@@ -17,15 +29,6 @@ Welcome to the future of cryptocurrency
 * Sqlite DB used in development, Postgres in production
 * Code is fully functional on my computer / browser (Firefox)
 * Now deployed on Heroku (https://www.randallcoding.com/api/ethereum).
-
-## Features
-* Search the Ethereum blockchain using Etherscan API
-
-* Search any Etherscan compliant transaction hashs (see https://etherscan.io/txs for a list of transactions)
-
-* Searches Mainnet (main network) and Ropsten (test network)
-
-* Deployed on Heroku
 
 ## Getting started
 ### Search example
