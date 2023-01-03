@@ -15,7 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-gem 'httparty', '~> 0.16.3'
+gem 'httparty', '~> 0.21.0'
 
 
 # Use CoffeeScript for .coffee assets and views
